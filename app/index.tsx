@@ -7,8 +7,8 @@ import { ProductCard } from '../components/ProductCard';
 import { ProductSkeleton } from '../components/ProductSkeleton';
 import { Product, ProductsResponse } from '../types/product';
 
-export default function Index() {
 
+export default function Index() {
 
   const {
     data,

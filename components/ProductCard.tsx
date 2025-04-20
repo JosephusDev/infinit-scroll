@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, Dimensions } from 'react-native';
 import { Product } from '../types/product';
+import { Feather } from '@expo/vector-icons';
 
 interface ProductCardProps {
   product: Product;
@@ -19,13 +20,13 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           {product.title}
         </Text>
         <Text style={styles.price}>
-          ${product.price.toFixed(2)}
+          <Feather name="dollar-sign" size={15} color="#9956F6" /> {product.price.toFixed(2)}
         </Text>
         <Text style={styles.description} numberOfLines={2}>
           {product.description}
         </Text>
         <View style={styles.ratingContainer}>
-          <Text style={styles.rating}>⭐ {product.rating.toFixed(1)}</Text>
+          <Text style={styles.rating}><Feather name="star" size={15} color="#f39c12" /> {product.rating.toFixed(1)}</Text>
           <Text style={styles.stock}>Stock: {product.stock}</Text>
         </View>
       </View>
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: 'white',
     borderRadius: 8,
-    marginBottom: 10,
+    marginVertical: 10,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -52,26 +53,26 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 120,
     borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
+    borderTopRightRadius: 8
   },
   content: {
     padding: 10,
   },
   title: {
     fontSize: 16,
-    fontFamily: 'Nunito_600SemiBold',
+    fontFamily: 'Nunito_800ExtraBold',
     marginBottom: 5,
   },
   price: {
-    fontSize: 18,
-    fontFamily: 'Nunito_600SemiBold',
-    color: '#2ecc71',
+    fontSize: 16,
+    fontFamily: 'Nunito_800ExtraBold',
+    color: '#9956F6',
     marginBottom: 5,
   },
   description: {
     fontSize: 14,
     fontFamily: 'Nunito_400Regular',
-    color: '#666',
+    color: 'gray',
     marginBottom: 5,
   },
   ratingContainer: {
@@ -81,12 +82,12 @@ const styles = StyleSheet.create({
   },
   rating: {
     fontSize: 14,
-    fontFamily: 'Nunito_600SemiBold',
+    fontFamily: 'Nunito_800ExtraBold',
     color: '#f39c12',
   },
   stock: {
     fontSize: 14,
-    fontFamily: 'Nunito_600SemiBold',
+    fontFamily: 'Nunito_800ExtraBold',
     color: '#666',
   },
 }); 
