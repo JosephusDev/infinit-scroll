@@ -2,9 +2,6 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, Dimensions } from 'react-native';
 import { Product } from '../types/product';
 
-const { width } = Dimensions.get('window');
-const CARD_WIDTH = width * 0.9;
-
 interface ProductCardProps {
   product: Product;
 }
@@ -38,7 +35,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: CARD_WIDTH,
+    width: '100%',
     backgroundColor: 'white',
     borderRadius: 8,
     marginBottom: 10,
@@ -62,17 +59,18 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontFamily: 'Nunito_600SemiBold',
     marginBottom: 5,
   },
   price: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily: 'Nunito_600SemiBold',
     color: '#2ecc71',
     marginBottom: 5,
   },
   description: {
     fontSize: 14,
+    fontFamily: 'Nunito_400Regular',
     color: '#666',
     marginBottom: 5,
   },
@@ -83,10 +81,12 @@ const styles = StyleSheet.create({
   },
   rating: {
     fontSize: 14,
+    fontFamily: 'Nunito_600SemiBold',
     color: '#f39c12',
   },
   stock: {
     fontSize: 14,
+    fontFamily: 'Nunito_600SemiBold',
     color: '#666',
   },
 }); 

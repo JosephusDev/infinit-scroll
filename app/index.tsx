@@ -1,18 +1,14 @@
 import 'react-native-reanimated';
 import React from 'react';
-import { View, FlatList, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet } from 'react-native';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { useFonts as useGoogleFonts, Inter_400Regular, Inter_600SemiBold } from '@expo-google-fonts/inter';
 import { fetchProducts } from '../services/api';
 import { ProductCard } from '../components/ProductCard';
 import { ProductSkeleton } from '../components/ProductSkeleton';
 import { Product, ProductsResponse } from '../types/product';
 
 export default function Index() {
-  const [fontsLoaded] = useGoogleFonts({
-    Inter_400Regular,
-    Inter_600SemiBold,
-  });
+
 
   const {
     data,
@@ -39,8 +35,8 @@ export default function Index() {
   const renderFooter = () => {
     if (!isFetchingNextPage) return null;
     return (
-      <View style={styles.footer}>
-        <ActivityIndicator size="large" color="#2ecc71" />
+    <View style={styles.container}>
+          <ProductSkeleton />
       </View>
     );
   };
@@ -50,14 +46,6 @@ export default function Index() {
       fetchNextPage();
     }
   };
-
-  if (!fontsLoaded) {
-    return (
-      <View style={styles.container}>
-        <ActivityIndicator size="large" color="#2ecc71" />
-      </View>
-    );
-  }
 
   if (isLoading) {
     return (
@@ -79,6 +67,7 @@ export default function Index() {
         onEndReachedThreshold={0.5}
         ListFooterComponent={renderFooter}
         contentContainerStyle={styles.listContent}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );

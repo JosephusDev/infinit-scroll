@@ -15,7 +15,7 @@ export const ProductSkeleton = () => {
         height={CARD_HEIGHT}
         viewBox={`0 0 ${CARD_WIDTH} ${CARD_HEIGHT}`}
         backgroundColor="#f3f3f3"
-        foregroundColor="#ecebeb"
+        foregroundColor="#dddddd"
       >
         <Rect x="0" y="0" rx="8" ry="8" width={CARD_WIDTH} height={120} />
         <Rect x="0" y="130" rx="4" ry="4" width={CARD_WIDTH * 0.6} height="20" />
